@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>লগইন - সাইন ইন</title>
+    <style>
+        body { font-family: Arial; text-align: center; background: #f0f2f5; padding-top: 50px; }
+        .box { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; }
+        input { display: block; width: 250px; padding: 8px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { background: #42b72a; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>লগইন করুন (Sign In)</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">লগইন</button>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* মূল বডি ও ব্যাকগ্রাউন্ড */
+body{
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tohama, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* আকর্ষণীয় টপ নেভিগেশন বার */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1877f2;
+    text-decoration: none;
+}
+.nav-user {
+    font-size: 16px;
+}
+.btn-logout {
+    background-color: #e4e6eb;
+    color: #050505;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.btn-logout:hover { background-color: #d8dadf; }
+
+/* মূল লেআউট ( দুই কলামের গ্রীড ) */
+.main_container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+/* সাধারণ কার্ড স্টাইল */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+/* বাম পাশের নীল স্বাগতম বক্স */
+.welcome-card h2 {
+    background: linear-gradient(135deg, #1877f2, #0056b3);
+    color: #ffffff;
+    text-align: center;
+}
+.welcome-card h2 { margin-top: 0; font-size: 26px; }
+
+/* ইনপুট ফর্মের ডিজাইন */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+.form-control {
+    width: 93%;
+    padding: 10px;
+    border: 1px solid #ccd0d5;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f5f6f7;
+}
+.form-control:focus {
+    outline: none;
+    border-color: #1877f2;
+    border-color: #fff;
+}
+.btn-submit {
+    width: 100%;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-submit:hover { background-color: #166fe5; }
+
+/* ডান পাশের ব্লগ পোস্ট কার্ড */
+.post-title {
+    color: #1877f2;
+    margin-top: 0;
+    font-size: 22px;
+}
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4b4b4b;
+    white-space: pre-line;
+}
+.post-footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+.card .badge {
+    background-color: #e4e6eb !important;
+    color: #65676b;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.post-date {
+    font-size: 13px;
+    color: #8a8d91;
+}

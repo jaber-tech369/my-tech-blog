@@ -1,0 +1,150 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>আমার প্রথম ড্যাঙ্গো ওয়েবসাইট</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        h1 { color: #1877f2; }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; padding: 10px 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        {% if user.is_authenticated %}
+            <span>স্বাগতম, <strong>{{ user.username }}</strong>! </span>
+            <a href="{% url 'logout' %}" style="color: red; font-weight: bold; text-decoration: none; margin-left: 10px;">লগআউট করুন</a>
+        {% else %}
+            <a href="{% url 'login' %}" style="color: #1877f2; font-weight: bold; text-decoration: none;">লগইন করুন</a> 
+            <a href="{% url 'signup' %}" style="color: #42b72a; font-weight: bold; text-decoration: none;">নতুন অ্যাকাউন্ট তৈরি করুন</a>
+        {% endif %}
+    </div>
+    <div class="box">
+        <h1>আসসালামু আলাইকুম! </h1>
+        <p>এটি ড্যাঙ্গো এবং আলাদা HTML টেমপ্লেট ব্যবহার করে তৈরি করা আমার প্রথম প্রফেশনাল ওয়েব পেজ</p>
+    </div>-->
+    <!-- নতুন পোস্ট করার ফর্রম বক্স -->
+    <!--<div class="box" style="margin-top: 20px; text-align: left; width: 500px;">
+        <h2>নতুন ব্লগ পোস্ট তৈরি করুন:</h2>
+        <form method="POST">
+            {% csrf_token %} --><!-- ড্যাঙ্গোর সিকিউরিটি টোকেন --> 
+            <!--<label>পোস্টের শিরোনাম:</label><br>
+            <input type="text" name="title" required style="width: 95%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;"><br>
+
+            <label>মূল কন্টেন্ট বা লেখা:</label><br>
+            <textarea name="content" required style="width: 95%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; height: 100px;"></textarea><br>
+
+            <button type="submit" style="background-color: #1877f2; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">পাবলিশ করুন</button>
+        </form>
+    </div>
+    <div class="box" style="margin-top: 20px; text-align: left;">
+        <h2>ডাটাবেজ থেকে আসা ব্লগ পোস্টসমূহ:</h2>
+        {% for post in posts %}
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>-->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার নিজস্ব প্রফেশনাল ব্লগ</title>
+    <!-- আমাদের নিজস্ব সিএসএস ফাইল কানেক্ট করার লাইন -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+    <!-- টপ নেভিগেশন বার -->
+    <nav class="navbar">
+        <a class="navbar-brand"  href="{% url 'home' %}">আমার টেক ব্লগ</a>
+        <div class="nav-user">
+            {% if user.is_authenticated %}
+                <span>স্বাগতম, <strong>{{ user.username }}</strong>!</span>
+                <a href="{% url 'logout' %}" class="btn-logout">লগআউট</a>
+            {% else %}
+                <a href="{% url 'login' %}" style="color: #1877f2; font-weight: bold; text-decoration: none; margin-right: 15px;" >লগইন</a>
+                <a href="{% url 'signup' %}" style="background: #42b72a; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold;">সাইন আপ</a>    
+            {% endif %}
+
+        </div>
+    </nav>
+
+    <!-- মূল লেআউট কন্টেনার -->
+    <div class="main-container">
+        
+            <!-- বাম পাশের কলাম -->
+            <div class="left-column">
+                <div class="card welcome-card">
+                    <h2>আসসালামু আলাইকুম!</h2>
+                    <p style="opacity: 0.9; margin: 0;">আমার নিজস্ব কাস্টম সিএসএস কোড দিয়ে তৈরি করা সম্পূর্ণ প্রফেশনাল ওয়েব পেজ</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top: 0; margin-bottom: 20px;">নতুন ব্লগ পোস্ট তৈরি করুন:</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>পোস্টের শিরোনাম:</label>
+                            <input type="text" name="title" required class="form-control" placeholder="শিরোনাম লিখুন...">
+                        </div>
+                        <div class="form-group">
+                            <label>মূল কন্টেন্ট বা লেখা:</label>
+                            <textarea name="content" required class="form-control" rows="5" placeholder="আপনার মনের কথা গুছিয়ে লিখুন..."></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 18px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;"> ফিচার্ড ছবি যুক্ত করুন:</label>
+                            <input type="file" name="image_file" class="form-control" accept="image/*">
+                        </div>
+
+                        <button type="submit" class="btn-submit">পাবলিশ করুন</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ডান পাশের কলাম (ডাটাবেজ পোস্ট) -->
+            <div class="right-column">
+                
+                <h3 style="margin-top: 0; margin-bottom: 20px;">ডাটাবেজ থেকে আসা ব্লগ পোস্টসমূহ</h3>
+                {% for post in posts %}
+                    <div class="card" style="margin-bottom: 20px; padding: 25px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+                        <h3 class="post-title" style="color: #1877f2; margin-top: 0;">{{ post.title }}</h3>
+                        <p class="post-content" style="font-size: 16px; line-height: 1.6; color: #4b4b4b; white-space: pre-line;">{{ post.content}}</p>
+                <!-- ছবি দেখানোর আসল ও নিখুঁত জায়গা -->
+                {% if post.image %}
+                    <div style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
+                        <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 100%; max-height: 350px; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>  
+                {% endif %}
+
+                <div class="post-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
+                    <span class="post-date" style="font-size: 13px; color: #8a8d91;">{{ post.created_at|date:"d M Y, h:i A" }}</span>
+                    <a href="{% url 'edit_post' post.id %}" style="background-color: #0d6efd; color: white; padding: 6px 12px; border-radius: 15px; text-decoration: none; font-size: 13px; font-weight: bold; margin-right: 5px;">এডিট করুন</a>
+                    <a href="{% url 'delete_post' post.id %}" style="background-color: #dc3545; color: white; padding: 6px 12px; border-radius: 15px; text-decoration: none; font-size: 13px; font-weight: bold; margin-right: 10px;">ডিলিট করুন</a>
+                    <span class="badge" style="background-color: #e4e6eb; color: #65676b; padding: 6px 12px; border-radius: 15px; font-size: 13px; font-weight: 600;">Author: techuser</span>
+                </div>
+            </div>
+                {% empty %}
+                    <div class="card" style="text-align: center; color: #8a8d91;">এখনো কোনো পোস্ট করা হয়নি!</div>
+                {% endfor %}
+                </div>
+    </div>
+</body>
+
+</html>
